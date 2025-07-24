@@ -1,0 +1,143 @@
+{
+  "metal1": { 
+        "layer"       : 10, 
+        "datatype"    : 0, 
+        "min_width"   : 0.08, 
+        "min_area"    : 0.05, 
+        "min_spacing" : 0.08
+  },
+  "metal2": { 
+        "layer"       : 11, 
+        "datatype"    : 0, 
+        "min_width"   : 0.10, 
+        "min_area"    : 0.06, 
+        "min_spacing" : 0.10
+  },
+  "metal3": { 
+        "layer"       : 12, 
+        "datatype"    : 0, 
+        "min_width"   : 0.12, 
+        "min_area"    : 0.08, 
+        "min_spacing" : 0.12
+  },
+  "metal4": { 
+        "layer"       : 13, 
+        "datatype"    : 0, 
+        "min_width"   : 0.15, 
+        "min_area"    : 0.10, 
+        "min_spacing" : 0.15
+  },
+  "metal5": { 
+        "layer"       : 14, 
+        "datatype"    : 0, 
+        "min_width"   : 0.20, 
+        "min_area"    : 0.15, 
+        "min_spacing" : 0.20
+  },
+  "metal6": { 
+        "layer"       : 15, 
+        "datatype"    : 0, 
+        "min_width"   : 0.25, 
+        "min_area"    : 0.20, 
+        "min_spacing" : 0.25
+  },
+  "metal7": { 
+        "layer"       : 16, 
+        "datatype"    : 0, 
+        "min_width"   : 0.40, 
+        "min_area"    : 0.30, 
+        "min_spacing" : 0.40 
+  },
+  "metal8": { 
+        "layer"       : 17, 
+        "datatype"    : 0, 
+        "min_width"   : 0.80, 
+        "min_area"    : 0.50, 
+        "min_spacing" : 0.80 
+  },
+  "via1": { 
+        "layer"       : 20, 
+        "datatype"    : 0, 
+        "width"       : 0.08, 
+        "height"      : 0.08,
+        "spacing"     : 0.12
+  },
+  "via2": { 
+        "layer"       : 21, 
+        "datatype"    : 0, 
+        "width"       : 0.10, 
+        "height"      : 0.10,
+        "spacing"     : 0.14
+  },
+  "via3": { 
+        "layer"       : 22, 
+        "datatype"    : 0, 
+        "width"       : 0.12, 
+        "height"      : 0.12,
+        "spacing"     : 0.16
+  },
+  "via4": { 
+        "layer"       : 23, 
+        "datatype"    : 0, 
+        "width"       : 0.15, 
+        "height"      : 0.15,
+        "spacing"     : 0.20
+  },
+  "via5": { 
+        "layer"       : 24, 
+        "datatype"    : 0, 
+        "width"       : 0.20, 
+        "height"      : 0.20,
+        "spacing"     : 0.25
+  },
+  "via6": { 
+        "layer"       : 25, 
+        "datatype"    : 0, 
+        "width"       : 0.25, 
+        "height"      : 0.25,
+        "spacing"     : 0.30
+  },
+  "via7": { 
+        "layer"       : 26, 
+        "datatype"    : 0, 
+        "width"       : 0.40, 
+        "height"      : 0.40,
+        "spacing"     : 0.50
+  },
+  "logo":  { 
+        "layer"       : 100, 
+        "datatype"    : 0 
+  },
+  "DM1EXCL":  { 
+        "layer"       : 200, 
+        "datatype"    : 1 
+  },
+  "DM2EXCL":  { 
+        "layer"       : 200, 
+        "datatype"    : 2 
+  },
+  "DM3EXCL":  { 
+        "layer"       : 200, 
+        "datatype"    : 3
+  },
+  "DM4EXCL":  { 
+        "layer"       : 200, 
+        "datatype"    : 4 
+  },
+  "DM5EXCL":  { 
+        "layer"       : 200, 
+        "datatype"    : 5 
+  },
+  "DM6EXCL":  { 
+        "layer"       : 200, 
+        "datatype"    : 6 
+  },
+  "DM7EXCL":  { 
+        "layer"       : 200, 
+        "datatype"    : 7 
+  },
+  "DM8EXCL":  { 
+        "layer"       : 200, 
+        "datatype"    : 8
+  }
+}

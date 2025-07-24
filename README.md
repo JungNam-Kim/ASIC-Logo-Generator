@@ -203,8 +203,9 @@ Below are the current contributors:
 
 ### Jung Nam Kim
 [![GitHub](https://img.shields.io/badge/GitHub-JungNam--Kim-181717?logo=github&logoColor=white&style=flat-square)](https://github.com/JungNam-Kim)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-JungNam%20Kim-0A66C2?logo=linkedin&logoColor=white&style=flat-square)](https://www.linkedin.com/in/jungnam-kim-b43ba322a/)  
 [![ASDL Lab](https://img.shields.io/badge/ASDL%20Lab-Website-blue?style=flat-square)](https://yoonkim82.wixsite.com/asdl)
----
+
 
 ## Acknowledgement
 

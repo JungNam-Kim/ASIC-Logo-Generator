@@ -22,7 +22,6 @@ A Python tool that converts bitmap images (logos) into GDS (GDSII) and LEF (Libr
 ```bash
 pip install gdspy pillow numpy
 ```
-
 ## Usage
 
 ### Basic Usage
@@ -32,13 +31,13 @@ from LogoGen import generate_logo_files
 
 # Generate both GDS and LEF files
 results = generate_logo_files(
-    image_path="logo.bmp",
-    constraint_json_path="layer.json",
-    output_gds="output/logo.gds",
-    output_lef="output/logo.lef",
-    macro_name="LOGO_CELL",
-    pixel_size_um=0.5,
-    threshold_value=180
+  image_path="logo.bmp",
+  constraint_json_path="layer.json",
+  output_gds="output/logo.gds",
+  output_lef="output/logo.lef",
+  macro_name="LOGO_CELL",
+  pixel_size_um=0.5,
+  threshold_value=180
 )
 ```
 
@@ -48,11 +47,11 @@ results = generate_logo_files(
 from LogoGen import bitmap_to_stacked_logo
 
 bitmap_to_stacked_logo(
-    image_path="logo.bmp",
-    constraint_json_path="layer.json",
-    output_gds="logo.gds",
-    pixel_size_um=0.5,
-    threshold_value=180
+  image_path="logo.bmp",
+  constraint_json_path="layer.json",
+  output_gds="logo.gds",
+  pixel_size_um=0.5,
+  threshold_value=180
 )
 ```
 
@@ -62,14 +61,37 @@ bitmap_to_stacked_logo(
 from LogoGen import generate_lef_from_logo
 
 generate_lef_from_logo(
-    image_path="logo.bmp",
-    constraint_json_path="layer.json",
-    output_lef="logo.lef",
-    macro_name="LOGO_CELL",
-    pixel_size_um=0.5,
-    threshold_value=180
+  image_path="logo.bmp",
+  constraint_json_path="layer.json",
+  output_lef="logo.lef",
+  macro_name="LOGO_CELL",
+  pixel_size_um=0.5,
+  threshold_value=180
 )
 ```
+
+### Command Line Usage
+
+You can run `LogoGen.py` directly from the command line using the following arguments:
+
+```bash
+python LogoGen.py \
+  --image logo.bmp \
+  --constraints layer.json \
+  --output_dir output \
+  --macro_name LOGO_CELL \
+  --pixel_size_um 0.5 \
+  --threshold_value 180
+```
+
+- `--image`: Path to the input bitmap image (required)
+- `--constraints`: Path to the layer configuration JSON file (required)
+- `--output_dir`: Output directory where generated files will be saved (required)
+- `--macro_name`: Name of the macro cell in the LEF file (default: `LOGO_CELL`)
+- `--pixel_size_um`: Pixel size in micrometers (default: 1.0)
+- `--threshold_value`: Threshold for binarizing the image (0-255, default: 128)
+
+The script will generate `logo.gds` (and optionally `logo.lef`) in the specified output directory. Make sure the input image and constraint JSON exist before running the command.
 
 ## Usage Example
 

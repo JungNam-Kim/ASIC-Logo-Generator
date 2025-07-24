@@ -12,6 +12,9 @@ pip-log.txt
 pip-delete-this-directory.txt
 .pytest_cache/
 
+# Input files
+input/
+
 # Output files
 output/
 *.gds

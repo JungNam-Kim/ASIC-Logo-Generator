@@ -17,6 +17,7 @@ from PIL import Image
 import numpy as np
 import json
 import os
+import argparse
 
 def parse_layer_constraints(json_path):
     with open(json_path, 'r') as f:
@@ -304,10 +305,23 @@ def generate_logo_files(
 
 
 if "__main__" == __name__:
-    InputImage = "logo.bmp"
-    ConstraintFile = "layer.json"
-    OutputDir = "output"
+    argparser = argparse.ArgumentParser(description="Generate GDS and LEF files from a logo bitmap image.")
+    argparser.add_argument("--image", type=str, required=True, help="Path to the bitmap image file (logo).")
+    argparser.add_argument("--constraints", type=str, required=True, help="Path to the JSON file with layer constraints.")
+    argparser.add_argument("--output_dir", type=str, required=True, help="Path to the output GDS file.")
+    argparser.add_argument("--macro_name", type=str, default="LOGO_CELL", help="Name of the macro cell in the LEF file.")
+    argparser.add_argument("--pixel_size_um", type=float, default=1.0, help="Pixel size in micrometers.")
+    argparser.add_argument("--threshold_value", type=int, default=128, help="Threshold value for binarization of the image.")
 
+    args = argparser.parse_args()
+    InputImage = args.image
+    ConstraintFile = args.constraints
+    OutputDir = args.output_dir
+
+    if not os.path.exists(InputImage):
+        raise FileNotFoundError(f"Input image file not found: {InputImage}")
+    if not os.path.exists(ConstraintFile):
+        raise FileNotFoundError(f"Constraint JSON file not found: {ConstraintFile}")
     if not os.path.exists(OutputDir):
         os.mkdir(OutputDir)
         
@@ -317,8 +331,8 @@ if "__main__" == __name__:
         output_gds=os.path.join(OutputDir, "logo.gds"),
         output_lef=os.path.join(OutputDir, "logo.lef"),
         macro_name="LOGO_CELL",
-        pixel_size_um=0.5,
-        threshold_value=180
+        pixel_size_um=args.pixel_size_um,
+        threshold_value=args.threshold_value
     )
     
     for result in results:

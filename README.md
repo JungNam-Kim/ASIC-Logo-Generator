@@ -49,6 +49,7 @@ from LogoGen import bitmap_to_stacked_logo
 bitmap_to_stacked_logo(
   image_path="logo.bmp",
   constraint_json_path="layer.json",
+  logo_cell_name="LOGO_CELL",
   output_gds="logo.gds",
   pixel_size_um=0.5,
   threshold_value=180
@@ -140,17 +141,19 @@ The layer configuration file defines the properties of each metal and via layer:
 - **pixel_size_um**: Physical size of each pixel in micrometers
 - **threshold_value**: Binary threshold for image conversion (0-255)
 - **macro_name**: Name of the generated LEF macro cell
-
 ## File Structure
 
 ```
-LogoGenerator/
+ASIC-Logo-Generator/
 ├── LogoGen.py          # Main script
 ├── layer.json          # Layer configuration
-├── logo.bmp            # Input image (example)
-└── output/
-    ├── logo.gds        # Generated GDS file
-    └── logo.lef        # Generated LEF file
+├── README.md           # Documentation
+├── sample/
+│   ├── logo.bmp        # Input image example
+│   └── LayoutExample.png # Generated layout example
+└── output/             # Generated output files
+  ├── logo.gds        # Generated GDS file
+  └── logo.lef        # Generated LEF file
 ```
 
 ## How It Works

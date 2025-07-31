@@ -19,24 +19,24 @@ import json
 import os
 import argparse
 
-def parse_layer_constraints(json_path):
+def parse_layer_constraints(json_path: str) -> dict:
     with open(json_path, 'r') as f:
         return json.load(f)
 
-
-def threshold_image(image_path, threshold=128):
+def threshold_image(image_path: str, threshold: int = 128) -> Image:
     """Convert grayscale image to binary using threshold."""
     image = Image.open(image_path).convert('L')
     binary_image = image.point(lambda p: 0 if p < threshold else 255, '1')
     return binary_image
 
 def bitmap_to_stacked_logo(
-    image_path,
-    constraint_json_path,
-    output_gds,
-    pixel_size_um=1.0,
-    threshold_value=128
-):
+    image_path: str,
+    constraint_json_path: str,
+    logo_cell_name: str = "LOGO_CELL",
+    output_gds: str = "logo.gds",
+    pixel_size_um: float = 1.0,
+    threshold_value: int = 128
+) -> str :
     constraints = parse_layer_constraints(constraint_json_path)
 
     metal_layers = sorted(
@@ -56,7 +56,7 @@ def bitmap_to_stacked_logo(
     image = threshold_image(image_path, threshold=threshold_value)
     width, height = image.size
     pixels = np.array(image, dtype=np.uint8)
-    cell = gdspy.Cell("LOGO")
+    cell = gdspy.Cell(logo_cell_name)
     filled = np.zeros_like(pixels, dtype=bool)
 
     # 2x2 convolution to find diagonal patterns
@@ -186,14 +186,14 @@ def bitmap_to_stacked_logo(
 
 
 def generate_lef_from_logo(
-    image_path,
-    constraint_json_path,
-    output_lef,
-    macro_name="LOGO_CELL",
-    pixel_size_um=1.0,
-    threshold_value=128,
-    units=1000  # LEF units (typically 1000 = 1um)
-):
+    image_path: str,
+    constraint_json_path: str,
+    output_lef: str,
+    macro_name: str = "LOGO_CELL",
+    pixel_size_um: float = 1.0,
+    threshold_value: int = 128,
+    units: int = 1000  # LEF units (typically 1000 = 1um)
+) -> str:
     """
     비트맵 이미지로부터 LEF (Library Exchange Format) 파일을 생성합니다.
     
@@ -257,13 +257,13 @@ def generate_lef_from_logo(
 
 
 def generate_logo_files(
-    image_path,
-    constraint_json_path,
-    output_gds,
-    output_lef=None,
-    macro_name="LOGO_CELL",
-    pixel_size_um=1.0,
-    threshold_value=128
+    image_path: str,
+    constraint_json_path: str,
+    output_gds: str,
+    output_lef: str = None,
+    macro_name: str = "LOGO_CELL",
+    pixel_size_um: float = 1.0,
+    threshold_value: int = 128
 ):
     """
     비트맵 이미지로부터 GDS와 LEF 파일을 모두 생성합니다.
@@ -283,6 +283,7 @@ def generate_logo_files(
     gds_result = bitmap_to_stacked_logo(
         image_path=image_path,
         constraint_json_path=constraint_json_path,
+        logo_cell_name=macro_name,
         output_gds=output_gds,
         pixel_size_um=pixel_size_um,
         threshold_value=threshold_value

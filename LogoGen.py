@@ -318,6 +318,7 @@ if "__main__" == __name__:
     InputImage = args.image
     ConstraintFile = args.constraints
     OutputDir = args.output_dir
+    MacroName = args.macro_name
 
     if not os.path.exists(InputImage):
         raise FileNotFoundError(f"Input image file not found: {InputImage}")
@@ -331,7 +332,7 @@ if "__main__" == __name__:
         constraint_json_path=ConstraintFile,
         output_gds=os.path.join(OutputDir, "logo.gds"),
         output_lef=os.path.join(OutputDir, "logo.lef"),
-        macro_name="LOGO_CELL",
+        macro_name=MacroName,
         pixel_size_um=args.pixel_size_um,
         threshold_value=args.threshold_value
     )

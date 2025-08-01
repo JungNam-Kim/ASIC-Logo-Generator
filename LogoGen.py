@@ -330,8 +330,8 @@ if "__main__" == __name__:
     results = generate_logo_files(
         image_path=InputImage,
         constraint_json_path=ConstraintFile,
-        output_gds=os.path.join(OutputDir, "logo.gds"),
-        output_lef=os.path.join(OutputDir, "logo.lef"),
+        output_gds=os.path.join(OutputDir, f"{MacroName}.gds"),
+        output_lef=os.path.join(OutputDir, f"{MacroName}.lef"),
         macro_name=MacroName,
         pixel_size_um=args.pixel_size_um,
         threshold_value=args.threshold_value

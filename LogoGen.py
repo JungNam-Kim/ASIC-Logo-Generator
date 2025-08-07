@@ -40,7 +40,7 @@ def bitmap_to_stacked_logo(
     constraints = parse_layer_constraints(constraint_json_path)
 
     metal_layers = sorted(
-        [k for k in constraints if k.startswith("metal")], key=lambda x: int(x[5:])
+        [k for k in constraints if k.startswith("M")], key=lambda x: int(x[1:])
     )
     via_layers = sorted(
         [k for k in constraints if k.startswith("via")], key=lambda x: int(x[3:])
@@ -210,7 +210,7 @@ def generate_lef_from_logo(
     
     # 메탈 레이어 및 VIA 레이어 정렬
     metal_layers = sorted(
-        [k for k in constraints if k.startswith("metal")], key=lambda x: int(x[5:])
+        [k for k in constraints if k.startswith("M")], key=lambda x: int(x[1:])
     )
     via_layers = sorted(
         [k for k in constraints if k.startswith("via")], key=lambda x: int(x[3:])
@@ -243,6 +243,13 @@ def generate_lef_from_logo(
     lef_content.append(f"    SIZE {width_lef/1000:.0f} BY {height_lef/1000:.0f} ;")
     lef_content.append("    SYMMETRY X Y R90 ;")
     lef_content.append("")
+    
+    lef_content.append("    OBS")
+    for metal in metal_layers: # 메탈 레이어에 대한 OBS 정의
+        spec = constraints[metal]
+        lef_content.append(f"        LAYER {metal} ;")
+        lef_content.append(f"            RECT 0 0 {width_lef/1000:.0f} {height_lef/1000:.0f} ;")
+    lef_content.append("    END")
     
     # 매크로 정의 종료
     lef_content.append(f"END {macro_name}")

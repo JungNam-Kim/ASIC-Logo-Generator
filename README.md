@@ -114,7 +114,7 @@ The layer configuration file defines the properties of each metal and via layer:
 
 ```json
 {
-  "metal1": {
+  "M1": {
     "layer": 10,
     "datatype": 0,
     "min_width": 0.08,
@@ -189,10 +189,10 @@ The tool respects semiconductor design rules:
 
 | Layer Type | Purpose | Example Uses |
 |------------|---------|--------------|
-| metal1-8 | Routing layers | Signal interconnect |
+| M1-8 | Routing layers | Signal interconnect |
 | via1-7 | Inter-layer vias | Layer connections |
 | logo | Logo outline | Visual reference |
-| DMxEXCL | Design margins | Exclusion zones |
+| DMxEXCL | Metal dummy exclusion region | Exclusion zones |
 
 ## License
 
